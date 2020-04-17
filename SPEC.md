@@ -54,7 +54,7 @@ Example usage:
 !uj: +some_file.uj # This time we require it
 ```
 \
-[Contents](#ujmap-specification)
+[Contents](#ujmap-format-specification)
 ## Requires
 ### +
 Requires load content from a referenced file as ujmap code. The file name is determined by leading whitespace (all content up until the first whitespace is included).\
@@ -66,7 +66,7 @@ Sub requires can be done by adding another + followed by a global variable name 
 The ujmap utility program can additionally list its own modules and names, for example, for built in libraries.
 \
 \
-[Contents](#ujmap-specification)
+[Contents](#ujmap-format-specification)
 ## Definitions
 ### =
 The `=` character defines a global variable. Prefixing the global variable with an `_` makes it localized (it doesn't get exported into parent embeds, and is always referenced with an _, essentially it can only be used in the current uj script)\
@@ -102,7 +102,7 @@ This allows ujmap utilities to easily transpile, parse, etc contents into string
 
 Inline embedding can be done using `!embedder_name: ~embedder code~`. \
 \
-[Contents](#ujmap-specification)
+[Contents](#ujmap-format-specification)
 ## Comments
 ### \#
 All content after the `#` character on any line is a comment. Long comments can be done using the embedder syntax, suffixed with a final `#` character.\
@@ -115,12 +115,12 @@ comment
 ~#
 ```
 \
-[Contents](#ujmap-specification)
+[Contents](#ujmap-format-specification)
 ## Other
 ### ;
 The `;` character is simply an alias for a new line (not including within embed contents!), however it is not an enforced ending. This allows code to be condensed down into one line for those who like to minify their code.\
 \
-[Contents](#ujmap-specification)
+[Contents](#ujmap-format-specification)
 
 # Standard Embedders **TODO**
 `math` - Processes a string and executes it as math
