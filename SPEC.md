@@ -8,7 +8,8 @@
 	* [Embedding](#embedding)
 	* [Comments](#comments)
 	* [Other](#other)
-- [Examples](#examples)
+- [Standard Embedders](#standard-embedders-todo)
+- [Examples](#examples-todo)
 
 # Terms:
 In this file I use the terms "embedder", "embed", "context", "require(s)", "utility program"/"utility implementation"/"utility". Here are simple definitions of my usage of these terms:
@@ -17,18 +18,20 @@ In this file I use the terms "embedder", "embed", "context", "require(s)", "util
 * Context - Something that's unique to executable embeds. This essentially just means all globals, locals, and extra data associated with an executable embed.
 * Require - An embed loaded (or the act of loading said embed) from a file or some case handled by the utility uniquely (e.g. builtin modules).
 * Utility - This is the term I am using to refer to the whole entire implementation of ujmap, for example, a node js module which contains code to execute and parse ujmap files, as well as its own custom require functionality and built in embedders. Ujmap is intended to be easily transpilable to modern languages such as lua or js, and its also intended to easily have parsers/executors implemented into said modern languages.
-
+\
 \
 [Contents](#ujmap-format-specification)
 # Contexts
 Every executable (uj, js, lua, etc where implemented) embed, **including requires** gets its own context. The following items are specific and unique to each context:
 * [Embedder mode](#embedder-mode)
 * Locally stored embeds
-
+\
 \
 [Contents](#ujmap-format-specification)
 # Operators
 Operators are single characters prefixing a line. Some operators can consume multiple lines, as well as other operators.
+\
+[Contents](#ujmap-format-specification)
 ## Embedder mode
 ### !
 The `!` character signifies an embedder mode change. All text up until the next line is included. Mode name content is dependant on implementation.\
@@ -57,6 +60,7 @@ Example usage:
 
 !uj: +some_file.uj # This time we require it
 ```
+\
 \
 [Contents](#ujmap-format-specification)
 ## Requires
@@ -98,7 +102,9 @@ A syntactic sugar version for inline embedder modes is `!embedder_name (VAR1, VA
 !console: (message1, message2, _aSecret) ~log~ # Syntactic sugar for "=^(message1, message2, _aSecret) !console: ~log~"
 =^(~~, _aSecret)
 ```
-``
+\
+\
+[Contents](#ujmap-format-specification)
 ## Embedding
 ### ~
 Embedding is signified by a `~` character. The current embedder mode defines behaviour within definition contexts. (See [Embedder](#embedder-mode)) This character encloses its content similarly to how a quote would in any standard programming language. Additionally, contents can be escaped using a \ character.
@@ -133,8 +139,15 @@ The `;` character is simply an alias for a new line (not including within embed 
 `json` - Loads json content (Not executable)
 `tuple` - A tuple embed (Would be internally used for the `(var1, var2, var3...)` syntax)
 
+\
+\
+[Contents](#ujmap-format-specification)
 # Examples **TODO**
 Also see the [examples](examples) folder.
 [embed_formats.uj](examples/embed_formats.uj) - Shows examples of embed formats.
 [context_example.uj](examples/contexts/context_example.uj) - Shows how uj contexts work (uj embedder within a uj file)
 [embedder_embedders.uj](examples/embedder_embedders/embedder_embedders.uj) - Example creating more embedders using an executable embedder
+
+\
+\
+[Contents](#ujmap-format-specification)
