@@ -1,2 +1,2 @@
 # ujmap
-A WIP format intended for universally storing trees, metadata, etc (e.g. site maps)
+A WIP plaintext format intended for universally storing trees, metadata, etc (e.g. site maps)
