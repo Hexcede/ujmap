@@ -18,6 +18,7 @@ In this file I use the terms "embedder", "embed", "context", "require(s)", "util
 * Context - Something that's unique to executable embeds. This essentially just means all globals, locals, and extra data associated with an executable embed.
 * Require - An embed loaded (or the act of loading said embed) from a file or some case handled by the utility uniquely (e.g. builtin modules).
 * Utility - This is the term I am using to refer to the whole entire implementation of ujmap, for example, a node js module which contains code to execute and parse ujmap files, as well as its own custom require functionality and built in embedders. Ujmap is intended to be easily transpilable to modern languages such as lua or js, and its also intended to easily have parsers/executors implemented into said modern languages.
+
 \
 \
 [Contents](#ujmap-format-specification)
@@ -25,6 +26,7 @@ In this file I use the terms "embedder", "embed", "context", "require(s)", "util
 Every executable (uj, js, lua, etc where implemented) embed, **including requires** gets its own context. The following items are specific and unique to each context:
 * [Embedder mode](#embedder-mode)
 * Locally stored embeds
+
 \
 \
 [Contents](#ujmap-format-specification)
